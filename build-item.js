@@ -13,6 +13,6 @@ const items = [
 
 
 module.exports = () => {
-    const randomNum = Math.floor(Math.random()*11)
+    const randomNum = Math.floor(Math.random()*10)
     return items[randomNum]
 }

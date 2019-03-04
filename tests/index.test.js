@@ -47,6 +47,19 @@ describe('when enhancement fails', () => {
             const {durability: durabilityAfter} = enhance(item);
             expect(durabilityAfter).toEqual(durabilityBefore - 10);
         })
+        describe('when durability is below 10', () => {
+            beforeEach(() => {
+                const difference = item.durability - 9;
+                if (difference > 0) {
+                    item.durability = item.durability - difference;
+                }
+            })
+            test('should not be able to enhance item', () => {
+                const itemBefore = {...item}
+                const itemAfter = enhance(item);
+                expect(itemAfter).toEqual(itemBefore);
+            });
+        })
     })
     describe('when item\'s enhancement level is greater than 16', () => {
         beforeEach(() => {
