@@ -7,7 +7,7 @@ const upperLevels = {
 }
 
 const success = (item) => {
-
+    return {...item, enhancement: item.enhancement + 1}
 }
 
 const fail = (item) => {
@@ -29,7 +29,6 @@ const fail = (item) => {
 }
 
 const repair = (item) => {
-
 }
 
 module.exports = {

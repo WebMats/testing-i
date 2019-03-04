@@ -8,6 +8,14 @@ beforeEach(() => {
 })
 
 describe('when enhancement succeeds', () => {
+    beforeAll(() => {
+        enhance = success;
+    })
+    test('should increase item enhancement by one', () => {
+        const enhancementBefore = item.enhancement;
+        const { enhancement: enhancementAfter } = enhance(item);
+        expect(enhancementAfter).toEqual(enhancementBefore + 1)
+    })
     
 })
 
