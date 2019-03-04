@@ -1,0 +1,23 @@
+{
+  "name": "testing-i",
+  "version": "1.0.0",
+  "description": "In this project, you will demonstrate proficiency by writing unit tests and production code to satisfy the _Minimum Viable Product_ described below.",
+  "main": "enhancer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebMats/testing-i.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WebMats/testing-i/issues"
+  },
+  "homepage": "https://github.com/WebMats/testing-i#readme",
+  "devDependencies": {
+    "jest": "^24.1.0"
+  }
+}
