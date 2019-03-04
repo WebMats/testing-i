@@ -21,6 +21,19 @@ describe('when enhancement fails', () => {
             const {durability: durabilityAfter} = enhance(item);
             expect(durabilityAfter).toEqual(durabilityBefore - 5);
         })
+        describe('when durability is below 25', () => {
+            beforeEach(() => {
+                const difference = item.durability - 24;
+                if (difference > 0) {
+                    item.durability = item.durability - difference;
+                }
+            })
+            test('should not be able to enhance item', () => {
+                const itemBefore = {...item}
+                const itemAfter = enhance(item);
+                expect(itemAfter).toEqual(itemBefore);
+            });
+        })
     })
     describe('when enhancement is greater than 14', () => {
         beforeEach(() => {
@@ -49,9 +62,7 @@ describe('when enhancement fails', () => {
         })
         test('should update name to include enhancement level', () => {
             const nameBefore = item.name;
-            console.log('before', item.enhancement)
             const {name: nameAfter} = enhance(item);
-            console.log('after', item.enhancement)
             expect(nameAfter).toEqual(`[${upperLevels[item.enhancement]}] ${nameBefore}`)
         })
     })

@@ -11,6 +11,9 @@ const success = (item) => {
 }
 
 const fail = (item) => {
+    if (item.enhancement <= 14 && item.durability < 25) {
+        return item
+    }
     if (item.enhancement > 16) {
         item.enhancement = item.enhancement - 1;
         
