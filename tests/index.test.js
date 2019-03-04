@@ -1,4 +1,4 @@
-const { success, fail, repair } = require('../enhancer');
+const { success, fail, repair, upperLevels} = require('../enhancer');
 const getItem = require('../build-item');
 
 let item, enhance;
@@ -46,6 +46,13 @@ describe('when enhancement fails', () => {
             const enhancementBefore = item.enhancement;
             const {enhancement: enhancementAfter} = enhance(item);
             expect(enhancementAfter).toEqual(enhancementBefore - 1);
+        })
+        test('should update name to include enhancement level', () => {
+            const nameBefore = item.name;
+            console.log('before', item.enhancement)
+            const {name: nameAfter} = enhance(item);
+            console.log('after', item.enhancement)
+            expect(nameAfter).toEqual(`[${upperLevels[item.enhancement]}] ${nameBefore}`)
         })
     })
     

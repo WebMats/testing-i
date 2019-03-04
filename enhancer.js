@@ -1,3 +1,11 @@
+const upperLevels = {
+    16: 'PRI',
+    17: 'DUO',
+    18: 'TRI',
+    19: 'TET',
+    20: 'PEN',
+}
+
 const success = (item) => {
 
 }
@@ -5,6 +13,8 @@ const success = (item) => {
 const fail = (item) => {
     if (item.enhancement > 16) {
         item.enhancement = item.enhancement - 1;
+        
+        item.name = `[${upperLevels[item.enhancement]}] ${item.name}`
     }
     if (item.enhancement > 14) {
         return {...item, durability: item.durability - 10}
@@ -19,5 +29,6 @@ const repair = (item) => {
 module.exports = {
     success,
     fail,
-    repair
+    repair,
+    upperLevels
 }
