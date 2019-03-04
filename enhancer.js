@@ -3,12 +3,13 @@ const success = (item) => {
 }
 
 const fail = (item) => {
-    if (item.enhancement > 14) {
-        const updatedItem = {...item, durability: item.durability - 10}
-        return updatedItem.durability
+    if (item.enhancement > 16) {
+        item.enhancement = item.enhancement - 1;
     }
-    const updatedItem = {...item, durability: item.durability - 5}
-    return updatedItem.durability
+    if (item.enhancement > 14) {
+        return {...item, durability: item.durability - 10}
+    }
+    return {...item, durability: item.durability - 5}
 }
 
 const repair = (item) => {
