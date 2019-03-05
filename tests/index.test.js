@@ -16,7 +16,11 @@ describe('when enhancement succeeds', () => {
         const { enhancement: enhancementAfter } = enhance(item);
         expect(enhancementAfter).toEqual(enhancementBefore + 1)
     })
-    
+    test('should update name to reflect new enhancement level', () => {
+        const nameBefore = item.name;
+        const {name: nameAfter} = enhance(item);
+        expect(nameAfter).toEqual(`[${upperLevels[item.enhancement + 1]}] ${nameBefore}`)
+    })
 })
 
 describe('when enhancement fails', () => {
