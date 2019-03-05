@@ -6,24 +6,28 @@ const upperLevels = {
 }
 
 const success = (item) => {
-    return {...item, enhancement: item.enhancement + 1, name: `[${upperLevels[item.enhancement + 1]}] ${item.name}`}
+    return {
+        ...item, 
+        enhancement: item.enhancement + 1, 
+        name: `[${upperLevels[item.enhancement + 1]}] ${item.name}`}
 }
 
 const fail = (item) => {
+    let updatedItem = {...item}
     if (item.enhancement >= 15 && item.durability < 10) {
-        return item
+        return updatedItem
     }
     if (item.enhancement <= 14 && item.durability < 25) {
-        return item
+        return updatedItem
     }
     if (item.enhancement > 16) {
-        item.enhancement = item.enhancement - 1;
-        item.name = `[${upperLevels[item.enhancement]}] ${item.name}`
+        updatedItem.enhancement = updatedItem.enhancement - 1
+        updatedItem.name = `[${upperLevels[updatedItem.enhancement]}] ${updatedItem.name}`
     }
     if (item.enhancement > 14) {
-        return {...item, durability: item.durability - 10}
+        return {...updatedItem, durability: item.durability - 10}
     }
-    return {...item, durability: item.durability - 5}
+    return {...updatedItem, durability: item.durability - 5}
 }
 
 const repair = (item) => {

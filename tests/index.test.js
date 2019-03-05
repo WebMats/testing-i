@@ -88,7 +88,7 @@ describe('when enhancement fails', () => {
         test('should update name to include enhancement level', () => {
             const nameBefore = item.name;
             const {name: nameAfter} = enhance(item);
-            expect(nameAfter).toEqual(`[${upperLevels[item.enhancement]}] ${nameBefore}`)
+            expect(nameAfter).toEqual(`[${upperLevels[item.enhancement - 1]}] ${nameBefore}`)
         })
     })
     
